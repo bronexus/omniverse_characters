@@ -17,9 +17,13 @@ class MainViewController: UIViewController, UITableViewDataSource {
     var charactersList = [SingleCharacter]()
     var nextPage = String()
     var prevPage = String()
+    var pageCounter: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // UITableView limit scroll speed
+        self.charactersTableView.decelerationRate = UIScrollView.DecelerationRate.fast
         
         // Fetch to charactersList variable Characters if first page of Rick and Morty API
         downloadCharactersListByPageURL(urlString: "https://rickandmortyapi.com/api/character")
@@ -61,15 +65,21 @@ class MainViewController: UIViewController, UITableViewDataSource {
     // MARK: - Buttons
     
     @IBAction func prevButton(_ sender: Any) {
-        if self.prevPage != "" {
+        if self.prevPage != "", pageCounter > 1 {
             downloadCharactersListByPageURL(urlString: self.prevPage)
-        } else { prevButton.isHidden = false}
+            pageCounter -= 1
+            pageNumberLabel.text = "Page \(pageCounter)/34"
+            self.nextButton.isHidden = false
+        } else { prevButton.isHidden = true}
     }
     
     @IBAction func nextButton(_ sender: Any) {
-        if self.nextPage != "" {
+        if self.nextPage != "", pageCounter < 34 {
             downloadCharactersListByPageURL(urlString: self.nextPage)
-        } else { nextButton.isHidden = false}
+            pageCounter += 1
+            pageNumberLabel.text = "Page \(pageCounter)/34"
+            self.prevButton.isHidden = false
+        } else { nextButton.isHidden = true}
     }
     
     
@@ -90,10 +100,14 @@ class MainViewController: UIViewController, UITableViewDataSource {
                 let characterResponse = try decoder.decode(CharacterPageResponse.self, from: data)
                 print("Loaded page \(urlString) of 34.")
                 print("\(characterResponse.results[0].name) is online.")
-                guard let nextPage = characterResponse.info.next else { return }
-                self.nextPage = nextPage
-                guard let prevPage = characterResponse.info.next else { return }
-                self.prevPage = prevPage
+                
+                if characterResponse.info.next != nil {
+                    self.nextPage = characterResponse.info.next!
+                }
+                if characterResponse.info.prev != nil {
+                    self.prevPage = characterResponse.info.prev!
+                }
+                
                 self.charactersList = characterResponse.results
                 DispatchQueue.main.async {
                     self.charactersTableView.reloadData()
