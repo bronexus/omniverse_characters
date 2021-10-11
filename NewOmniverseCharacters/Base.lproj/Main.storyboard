@@ -103,6 +103,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Prev">
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="prevButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rRc-yY-6gO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olZ-MM-EwE">
                                 <rect key="frame" x="340" y="844" width="54" height="31"/>
@@ -110,6 +113,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Next">
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="nextButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="joQ-1h-cko"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page 1/34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1J-hG-8vN">
                                 <rect key="frame" x="167" y="844" width="80.333333333333314" height="20.333333333333371"/>
@@ -142,6 +148,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="charactersTableView" destination="f94-Xv-ATq" id="i0v-ba-kHh"/>
+                        <outlet property="nextButton" destination="olZ-MM-EwE" id="kuB-0W-O6Q"/>
+                        <outlet property="pageNumberLabel" destination="H1J-hG-8vN" id="fHr-9j-M5U"/>
+                        <outlet property="prevButton" destination="BRU-Bo-W5o" id="vLo-VY-pup"/>
                         <segue destination="y3m-Nd-Rce" kind="show" identifier="showCharacterDetails" id="V3u-HS-iz1"/>
                     </connections>
                 </viewController>

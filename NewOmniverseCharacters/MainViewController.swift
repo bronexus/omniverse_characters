@@ -10,6 +10,9 @@ import UIKit
 class MainViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet var charactersTableView: UITableView!
+    @IBOutlet var prevButton: UIButton!
+    @IBOutlet var nextButton: UIButton!
+    @IBOutlet var pageNumberLabel: UILabel!
     
     var charactersList = [SingleCharacter]()
     var nextPage = String()
@@ -55,7 +58,19 @@ class MainViewController: UIViewController, UITableViewDataSource {
     
     
     
+    // MARK: - Buttons
     
+    @IBAction func prevButton(_ sender: Any) {
+        if self.prevPage != "" {
+            downloadCharactersListByPageURL(urlString: self.prevPage)
+        } else { prevButton.isHidden = false}
+    }
+    
+    @IBAction func nextButton(_ sender: Any) {
+        if self.nextPage != "" {
+            downloadCharactersListByPageURL(urlString: self.nextPage)
+        } else { nextButton.isHidden = false}
+    }
     
     
     // MARK: - Download Functions
@@ -79,7 +94,6 @@ class MainViewController: UIViewController, UITableViewDataSource {
                 self.nextPage = nextPage
                 guard let prevPage = characterResponse.info.next else { return }
                 self.prevPage = prevPage
-                print(characterResponse.info)
                 self.charactersList = characterResponse.results
                 DispatchQueue.main.async {
                     self.charactersTableView.reloadData()
