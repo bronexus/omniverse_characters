@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="f94-Xv-ATq">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="856"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="f94-Xv-ATq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="836"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="characterCell" rowHeight="124" id="buX-6p-HvF" customClass="CharacterTableViewCell" customModule="NewOmniverseCharacters" customModuleProvider="target">
@@ -97,14 +97,44 @@
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="0Vx-dd-LJa"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRU-Bo-W5o">
+                                <rect key="frame" x="20" y="844" width="53" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Prev">
+                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olZ-MM-EwE">
+                                <rect key="frame" x="340" y="844" width="54" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Next">
+                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page 1/34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1J-hG-8vN">
+                                <rect key="frame" x="167" y="844" width="80.333333333333314" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6ZS-3T-prw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="f94-Xv-ATq" secondAttribute="bottom" constant="40" id="DC5-aQ-p9G"/>
+                            <constraint firstItem="olZ-MM-EwE" firstAttribute="baseline" secondItem="BRU-Bo-W5o" secondAttribute="baseline" id="1hC-2s-Rr7"/>
+                            <constraint firstItem="H1J-hG-8vN" firstAttribute="top" secondItem="BRU-Bo-W5o" secondAttribute="top" id="8m9-Wt-1In"/>
+                            <constraint firstAttribute="bottom" secondItem="f94-Xv-ATq" secondAttribute="bottom" constant="60" id="DC5-aQ-p9G"/>
                             <constraint firstItem="f94-Xv-ATq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Jph-oA-67g"/>
+                            <constraint firstItem="olZ-MM-EwE" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="MDE-39-GTl"/>
+                            <constraint firstItem="olZ-MM-EwE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H1J-hG-8vN" secondAttribute="trailing" id="U35-uk-n6C"/>
+                            <constraint firstItem="H1J-hG-8vN" firstAttribute="centerX" secondItem="f94-Xv-ATq" secondAttribute="centerX" id="Yen-Rx-Imv"/>
+                            <constraint firstItem="H1J-hG-8vN" firstAttribute="top" secondItem="olZ-MM-EwE" secondAttribute="top" id="aYo-ha-BPX"/>
+                            <constraint firstItem="BRU-Bo-W5o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="deJ-LC-yr4"/>
+                            <constraint firstItem="H1J-hG-8vN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BRU-Bo-W5o" secondAttribute="trailing" id="ffu-Zp-xik"/>
                             <constraint firstItem="f94-Xv-ATq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g3W-5Y-UMh"/>
+                            <constraint firstItem="olZ-MM-EwE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BRU-Bo-W5o" secondAttribute="trailing" constant="8" symbolic="YES" id="mXU-b1-MjW"/>
                             <constraint firstAttribute="trailing" secondItem="f94-Xv-ATq" secondAttribute="trailing" id="q5p-SQ-oQa"/>
+                            <constraint firstItem="olZ-MM-EwE" firstAttribute="top" secondItem="f94-Xv-ATq" secondAttribute="bottom" constant="8" symbolic="YES" id="zOQ-Pp-XHq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Omniverse Characters" id="PPD-jY-SZY">
@@ -112,7 +142,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="charactersTableView" destination="f94-Xv-ATq" id="i0v-ba-kHh"/>
-                        <segue destination="y3m-Nd-Rce" kind="show" identifier="showDetails" id="V3u-HS-iz1"/>
+                        <segue destination="y3m-Nd-Rce" kind="show" identifier="showCharacterDetails" id="V3u-HS-iz1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
