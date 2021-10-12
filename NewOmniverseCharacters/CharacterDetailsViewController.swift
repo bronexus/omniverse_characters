@@ -94,6 +94,24 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource, U
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         characterDetails = charactersOfLocation[indexPath.row]
         
+        characterDetailsNameLabel.text = characterDetails?.name
+        characterDetailsLocationLabel.text = characterDetails?.location.name
+        characterDetailsEpisodeLabel.text = characterDetails?.episode[0]
+        characterDetailsStatusLabel.text = characterDetails?.status
+        
+        if let imageURL = URL(string: characterDetails!.image) {
+            DispatchQueue.global().async{
+                let data = try? Data(contentsOf: imageURL)
+                if let data = data {
+                    let image = UIImage(data: data)
+                    DispatchQueue.main.async {
+                        self.characterDetailsImage.layer.cornerRadius = 15
+                        self.characterDetailsImage.image = image
+                    }
+                }
+            }
+
+        }
     }
     
 
