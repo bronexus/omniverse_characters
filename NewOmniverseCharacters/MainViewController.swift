@@ -18,6 +18,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var nextPage = String()
     var prevPage = String()
     var pageCounter: Int = 1
+    var characterEpisodeName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,10 +47,30 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         cell.characterNameLabel.text = charactersList[indexPath.row].name
         cell.lastLocationLabel.text = charactersList[indexPath.row].location.name
-        cell.characterEpisodeLabel.text = charactersList[indexPath.row].episode[0]
+        
+        if let episodeURL = URL(string: charactersList[indexPath.row].episode[0]) {
+            DispatchQueue.global().async {
+                URLSession.shared.dataTask(with: episodeURL) { data, urlRepsonse, error in
+                    guard let data = data, urlRepsonse != nil, error == nil else {
+                        print("Episode download Error.")
+                        self.characterEpisodeName = self.charactersList[indexPath.row].episode[0]
+                        return
+                    }
+                    do {
+                        let decoder = JSONDecoder()
+                        let episode = try decoder.decode(Episode.self, from: data)
+                        self.characterEpisodeName = episode.name
+                    } catch {
+                        print("Episode download error.")
+                    }
+                }.resume()
+            }
+        }
+        
+        cell.characterEpisodeLabel.text = characterEpisodeName
         
         if let imageURL = URL(string: charactersList[indexPath.row].image) {
-            DispatchQueue.global().async{
+            DispatchQueue.global().async {
                 let data = try? Data(contentsOf: imageURL)
                 if let data = data {
                     let image = UIImage(data: data)
@@ -129,7 +150,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             } catch {
                 print("Characters page decode Error.")
             }
-            
         }.resume()
     }
     
