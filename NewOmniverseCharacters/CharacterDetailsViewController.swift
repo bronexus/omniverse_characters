@@ -25,7 +25,7 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource {
     var residentsUrls = [String]()
     var charactersOfLocation = [SingleCharacter]()
     
-    var limitResidentsInList: Int = 9
+    var limitResidentsInList: Int = 6
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +38,22 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource {
         characterDetailsEpisodeLabel.text = characterDetails?.episode[0]
         characterDetailsStatusLabel.text = characterDetails?.status
         
+        if let imageURL = URL(string: characterDetails!.image) {
+            DispatchQueue.global().async{
+                let data = try? Data(contentsOf: imageURL)
+                if let data = data {
+                    let image = UIImage(data: data)
+                    DispatchQueue.main.async {
+                        self.characterDetailsImage.layer.cornerRadius = 15
+                        self.characterDetailsImage.image = image
+                    }
+                }
+            }
+
+        }
+        
         // Display episode details
-        alsoFromLocationLabel.text = characterDetails?.location.name
+        alsoFromLocationLabel.text = "Also from \(characterDetails?.location.name)"
         
         downloadLocationCharactersUrlListByEpisodeURL(urlString: (characterDetails?.location.url)!)
         
@@ -59,7 +73,7 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource {
 
         cell.residentNameLabel.text = charactersOfLocation[indexPath.row].name
         cell.residentLocationLabel.text = charactersOfLocation[indexPath.row].location.name
-        cell.residentLocationLabel.text = charactersOfLocation[indexPath.row].episode[0]
+        cell.residentEpisodeLabel.text = charactersOfLocation[indexPath.row].episode[0]
 
         if let imageURL = URL(string: charactersOfLocation[indexPath.row].image) {
             DispatchQueue.global().async{

@@ -230,13 +230,13 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Also from Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGL-3G-6bF">
-                                <rect key="frame" x="19.999999999999986" y="328" width="224.66666666666663" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <rect key="frame" x="20" y="328" width="182.33333333333334" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oV0-7a-RJe">
-                                <rect key="frame" x="0.0" y="366" width="414" height="496"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oV0-7a-RJe">
+                                <rect key="frame" x="0.0" y="360" width="414" height="536"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="residentCell" rowHeight="124" id="YPc-Sv-UFI" customClass="ResidentTableViewCell" customModule="NewOmniverseCharacters" customModuleProvider="target">
@@ -327,7 +327,7 @@
                             <constraint firstItem="bq3-8y-N0W" firstAttribute="trailing" secondItem="YDQ-An-ago" secondAttribute="trailing" constant="20" id="Sl2-zc-Ief"/>
                             <constraint firstItem="YDQ-An-ago" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" constant="20" id="XZg-B3-ZV7"/>
                             <constraint firstItem="rGL-3G-6bF" firstAttribute="top" secondItem="Adb-mv-gYD" secondAttribute="bottom" constant="40" id="aFb-xZ-0BC"/>
-                            <constraint firstItem="oV0-7a-RJe" firstAttribute="bottom" secondItem="bq3-8y-N0W" secondAttribute="bottom" id="cJx-fw-PpP"/>
+                            <constraint firstAttribute="bottom" secondItem="oV0-7a-RJe" secondAttribute="bottom" id="cTh-XU-wur"/>
                             <constraint firstItem="dcJ-oD-hmR" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" constant="20" id="ddQ-4r-Obs"/>
                             <constraint firstItem="oV0-7a-RJe" firstAttribute="trailing" secondItem="bq3-8y-N0W" secondAttribute="trailing" id="eCO-hQ-kgc"/>
                             <constraint firstItem="oV0-7a-RJe" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" id="ew0-GC-UiL"/>

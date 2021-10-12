@@ -9,7 +9,6 @@ import UIKit
 
 class CharacterTableViewCell: UITableViewCell {
 
-    
     @IBOutlet var characterCellView: UIView!
     @IBOutlet var characterNameLabel: UILabel!
     @IBOutlet var lastLocationLabel: UILabel!
@@ -26,8 +25,8 @@ class CharacterTableViewCell: UITableViewCell {
         characterCellView.layer.shadowOffset = .zero
         characterCellView.layer.shadowRadius = 5
         
-        characterCellView.layer.cornerRadius = 10
-        characterImage.layer.cornerRadius = 10
+        characterCellView.layer.cornerRadius = 15
+        characterImage.layer.cornerRadius = 15
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
