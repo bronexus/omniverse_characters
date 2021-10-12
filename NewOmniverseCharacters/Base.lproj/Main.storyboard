@@ -336,11 +336,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="UFF-Yd-98I"/>
                     <connections>
+                        <outlet property="alsoFromLocationLabel" destination="rGL-3G-6bF" id="48U-GM-R2x"/>
                         <outlet property="characterDetailsEpisodeLabel" destination="H9l-8r-NSC" id="0zl-Xc-ryV"/>
                         <outlet property="characterDetailsImage" destination="dcJ-oD-hmR" id="W4u-qX-YdH"/>
                         <outlet property="characterDetailsLocationLabel" destination="dlJ-yo-THN" id="abY-Gt-s2C"/>
                         <outlet property="characterDetailsNameLabel" destination="YDQ-An-ago" id="6yY-t8-xO8"/>
                         <outlet property="characterDetailsStatusLabel" destination="iQ8-Ug-l4e" id="HTQ-0b-64A"/>
+                        <outlet property="episodeCharactersTableView" destination="oV0-7a-RJe" id="V8p-s2-Qc9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ilb-Y5-zIl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

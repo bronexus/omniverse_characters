@@ -16,6 +16,7 @@
 		2A9696222714A917006C4367 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9696212714A917006C4367 /* CharacterTableViewCell.swift */; };
 		2A9696242714AB61006C4367 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9696232714AB61006C4367 /* Character.swift */; };
 		2A9696262714D6F9006C4367 /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9696252714D6F9006C4367 /* CharacterDetailsViewController.swift */; };
+		2A96962827151222006C4367 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96962727151222006C4367 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2A9696212714A917006C4367 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		2A9696232714AB61006C4367 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		2A9696252714D6F9006C4367 /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
+		2A96962727151222006C4367 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				2A96960A27141C9C006C4367 /* Main.storyboard */,
 				2A9696252714D6F9006C4367 /* CharacterDetailsViewController.swift */,
 				2A9696232714AB61006C4367 /* Character.swift */,
+				2A96962727151222006C4367 /* Location.swift */,
 				2A9696212714A917006C4367 /* CharacterTableViewCell.swift */,
 				2A96961A27141D29006C4367 /* MainViewController.swift */,
 				2A96960D27141CA1006C4367 /* Assets.xcassets */,
@@ -153,6 +156,7 @@
 				2A96960727141C9C006C4367 /* SceneDelegate.swift in Sources */,
 				2A9696222714A917006C4367 /* CharacterTableViewCell.swift in Sources */,
 				2A9696262714D6F9006C4367 /* CharacterDetailsViewController.swift in Sources */,
+				2A96962827151222006C4367 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

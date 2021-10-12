@@ -15,9 +15,17 @@ class CharacterDetailsViewController: UIViewController {
     @IBOutlet var characterDetailsEpisodeLabel: UILabel!
     @IBOutlet var characterDetailsStatusLabel: UILabel!
     
+    @IBOutlet var alsoFromLocationLabel: UILabel!
+    @IBOutlet var episodeCharactersTableView: UITableView!
+    
     
     var receivedCharacterDetails: SingleCharacter?
     var characterDetails: SingleCharacter?
+    
+    var residentsUrls = [String]()
+    var charactersOfLocation = [SingleCharacter]()
+    
+    var limitResidentsInList: Int = 9
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,17 +38,103 @@ class CharacterDetailsViewController: UIViewController {
         characterDetailsEpisodeLabel.text = characterDetails?.episode[0]
         characterDetailsStatusLabel.text = characterDetails?.status
         
+        // Display episode details
+        alsoFromLocationLabel.text = characterDetails?.location.name
+        
+        downloadLocationCharactersUrlListByEpisodeURL(urlString: (characterDetails?.location.url)!)
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Episode Characters
+    
+//    // Define number of rows in Episode Characters Table View
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return charactersList.count
+//    }
+//
+//    // Define cell/s for Characters Table View
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "characterCell") as? CharacterTableViewCell else { return UITableViewCell() }
+//
+//        cell.characterNameLabel.text = charactersList[indexPath.row].name
+//        cell.lastLocationLabel.text = charactersList[indexPath.row].location.name
+//        cell.characterEpisodeLabel.text = charactersList[indexPath.row].episode[0]
+//
+//        if let imageURL = URL(string: charactersList[indexPath.row].image) {
+//            DispatchQueue.global().async{
+//                let data = try? Data(contentsOf: imageURL)
+//                if let data = data {
+//                    let image = UIImage(data: data)
+//                    DispatchQueue.main.async {
+//                        cell.characterImage.image = image
+//                    }
+//                }
+//            }
+//
+//        }
+//        return cell
+//    }
+    
+    // MARK: - Download Functions
+    
+    func downloadLocationCharactersUrlListByEpisodeURL(urlString: String) {
+        let downloadURL = URL(string: urlString)
+        guard let url = downloadURL else { return }
+        URLSession.shared.dataTask(with: url) { data, urlResponse, error in
+            guard let data = data, urlResponse != nil, error == nil else {
+                print("Location download Error.")
+                return
+            }
+            print("Location download Succes.")
+            do {
+                let decoder = JSONDecoder()
+                let locationResponse = try decoder.decode(Location.self, from: data)
+                print("Loaded location \(urlString) of 108")
+                print("Teleported to \(locationResponse.name).")
+                
+//                self.charactersList = characterResponse.results
+                self.residentsUrls = locationResponse.residents
+                
+                for resident in 0...(self.residentsUrls.count - 1) where resident < self.limitResidentsInList {
+                    self.downloadOneCharacter(urlString: self.residentsUrls[resident])
+                }
+                
+                DispatchQueue.main.async {
+//                    print(self.residentsUrls)
+                    print(self.charactersOfLocation)
+                    self.episodeCharactersTableView.reloadData()
+                }
+            } catch {
+                print("Location decode Error.")
+            }
+            
+        }.resume()
     }
-    */
-
+    
+    func downloadOneCharacter(urlString: String) {
+        let downloadURL = URL(string: urlString)
+        guard let url = downloadURL else { return }
+        URLSession.shared.dataTask(with: url) { data, urlResponse, error in
+            guard let data = data, urlResponse != nil, error == nil else {
+                print("Character download Error.")
+                return
+            }
+//            print("Character download Succes.")
+            do {
+                let decoder = JSONDecoder()
+                let oneCharacter = try decoder.decode(SingleCharacter.self, from: data)
+//                print("Loaded character \(urlString)")
+                
+                self.charactersOfLocation.append(oneCharacter)
+                DispatchQueue.main.async {
+                    self.episodeCharactersTableView.reloadData()
+                }
+            } catch {
+                print("Character decode Error.")
+            }
+            
+        }.resume()
+    }
+    
 }

@@ -63,7 +63,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-    //
+    // MARK: - Interaction with UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showCharacterDetails", sender: self)
@@ -104,14 +104,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         guard let url = downloadURL else { return }
         URLSession.shared.dataTask(with: url) { data, urlResponse, error in
             guard let data = data, urlResponse != nil, error == nil else {
-                print("Character download Error.")
+                print("Characters Page download Error.")
                 return
             }
-            print("Character download Succes.")
+            print("Characters Page download Succes.")
             do {
                 let decoder = JSONDecoder()
                 let characterResponse = try decoder.decode(CharacterPageResponse.self, from: data)
-                print("Loaded page \(urlString) of 34.")
+                print("Loaded characters page \(urlString) of 34.")
                 print("\(characterResponse.results[0].name) is online.")
                 
                 if characterResponse.info.next != nil {
@@ -126,7 +126,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     self.charactersTableView.reloadData()
                 }
             } catch {
-                print("Decode Error.")
+                print("Characters page decode Error.")
             }
             
         }.resume()
