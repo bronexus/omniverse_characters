@@ -112,6 +112,7 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource, U
             }
 
         }
+        episodeCharactersTableView.deselectRow(at: indexPath, animated: true)
     }
     
 
