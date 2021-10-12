@@ -53,7 +53,7 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource {
         }
         
         // Display episode details
-        alsoFromLocationLabel.text = "Also from \(characterDetails?.location.name)"
+        alsoFromLocationLabel.text = characterDetails?.location.url != "" ? "Also from \((characterDetails?.location.name)!)" : ""
         
         downloadLocationCharactersUrlListByEpisodeURL(urlString: (characterDetails?.location.url)!)
         

@@ -230,7 +230,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Also from Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGL-3G-6bF">
-                                <rect key="frame" x="20" y="328" width="182.33333333333334" height="24"/>
+                                <rect key="frame" x="20" y="328" width="374" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -333,7 +333,7 @@
                             <constraint firstItem="oV0-7a-RJe" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" id="ew0-GC-UiL"/>
                             <constraint firstItem="dcJ-oD-hmR" firstAttribute="leading" secondItem="rGL-3G-6bF" secondAttribute="leading" id="g2d-1m-afZ"/>
                             <constraint firstItem="rGL-3G-6bF" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" constant="20" id="gSl-bw-Ek5"/>
-                            <constraint firstItem="bq3-8y-N0W" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rGL-3G-6bF" secondAttribute="trailing" symbolic="YES" id="gw6-08-meD"/>
+                            <constraint firstItem="bq3-8y-N0W" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="rGL-3G-6bF" secondAttribute="trailing" constant="20" id="gw6-08-meD"/>
                             <constraint firstItem="Adb-mv-gYD" firstAttribute="leading" secondItem="dcJ-oD-hmR" secondAttribute="trailing" constant="8" symbolic="YES" id="jf9-hg-BKU"/>
                             <constraint firstItem="rGL-3G-6bF" firstAttribute="top" secondItem="dcJ-oD-hmR" secondAttribute="bottom" constant="40" id="r0l-BE-jHl"/>
                             <constraint firstItem="dcJ-oD-hmR" firstAttribute="top" secondItem="Adb-mv-gYD" secondAttribute="top" id="rOp-16-EkM"/>
