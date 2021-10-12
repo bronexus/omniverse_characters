@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CharacterDetailsViewController: UIViewController {
+class CharacterDetailsViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet var characterDetailsNameLabel: UILabel!
     @IBOutlet var characterDetailsImage: UIImageView!
@@ -48,33 +48,33 @@ class CharacterDetailsViewController: UIViewController {
 
     // MARK: - Episode Characters
     
-//    // Define number of rows in Episode Characters Table View
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return charactersList.count
-//    }
-//
-//    // Define cell/s for Characters Table View
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "characterCell") as? CharacterTableViewCell else { return UITableViewCell() }
-//
-//        cell.characterNameLabel.text = charactersList[indexPath.row].name
-//        cell.lastLocationLabel.text = charactersList[indexPath.row].location.name
-//        cell.characterEpisodeLabel.text = charactersList[indexPath.row].episode[0]
-//
-//        if let imageURL = URL(string: charactersList[indexPath.row].image) {
-//            DispatchQueue.global().async{
-//                let data = try? Data(contentsOf: imageURL)
-//                if let data = data {
-//                    let image = UIImage(data: data)
-//                    DispatchQueue.main.async {
-//                        cell.characterImage.image = image
-//                    }
-//                }
-//            }
-//
-//        }
-//        return cell
-//    }
+    // Define number of rows in Episode Characters Table View
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return charactersOfLocation.count
+    }
+
+    // Define cell/s for Characters Table View
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "residentCell") as? ResidentTableViewCell else { return UITableViewCell() }
+
+        cell.residentNameLabel.text = charactersOfLocation[indexPath.row].name
+        cell.residentLocationLabel.text = charactersOfLocation[indexPath.row].location.name
+        cell.residentLocationLabel.text = charactersOfLocation[indexPath.row].episode[0]
+
+        if let imageURL = URL(string: charactersOfLocation[indexPath.row].image) {
+            DispatchQueue.global().async{
+                let data = try? Data(contentsOf: imageURL)
+                if let data = data {
+                    let image = UIImage(data: data)
+                    DispatchQueue.main.async {
+                        cell.residentImage.image = image
+                    }
+                }
+            }
+
+        }
+        return cell
+    }
     
     // MARK: - Download Functions
     

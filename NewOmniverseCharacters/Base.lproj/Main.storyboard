@@ -235,12 +235,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oV0-7a-RJe">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oV0-7a-RJe">
                                 <rect key="frame" x="0.0" y="366" width="414" height="496"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="residentCell" rowHeight="124" id="YPc-Sv-UFI" customClass="CharacterTableViewCell" customModule="NewOmniverseCharacters" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="residentCell" rowHeight="124" id="YPc-Sv-UFI" customClass="ResidentTableViewCell" customModule="NewOmniverseCharacters" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="124"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YPc-Sv-UFI" id="y0I-YA-xOo">
@@ -306,25 +305,32 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="characterCellView" destination="1fu-Fk-k0x" id="mZa-Rq-q13"/>
-                                            <outlet property="characterEpisodeLabel" destination="oZZ-xs-0zL" id="qqb-NT-7kp"/>
-                                            <outlet property="characterImage" destination="qzG-1d-anH" id="VSM-BS-ZRQ"/>
-                                            <outlet property="characterNameLabel" destination="Aut-kt-xaI" id="Esi-Vc-J9G"/>
-                                            <outlet property="lastLocationLabel" destination="FtX-Va-N7f" id="svM-TP-JEp"/>
+                                            <outlet property="residentEpisodeLabel" destination="oZZ-xs-0zL" id="IUi-d6-woG"/>
+                                            <outlet property="residentImage" destination="qzG-1d-anH" id="fsA-e8-jxA"/>
+                                            <outlet property="residentLocationLabel" destination="FtX-Va-N7f" id="I8x-ca-0Ze"/>
+                                            <outlet property="residentNameLabel" destination="Aut-kt-xaI" id="Pvs-UY-aFp"/>
+                                            <outlet property="residentViewCell" destination="1fu-Fk-k0x" id="6x4-0H-k7F"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="y3m-Nd-Rce" id="4fw-SU-k58"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bq3-8y-N0W"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="oV0-7a-RJe" firstAttribute="top" secondItem="rGL-3G-6bF" secondAttribute="bottom" constant="8" symbolic="YES" id="FeU-GU-ky0"/>
                             <constraint firstItem="YDQ-An-ago" firstAttribute="top" secondItem="bq3-8y-N0W" secondAttribute="top" id="PPd-oQ-DG4"/>
                             <constraint firstAttribute="trailing" secondItem="Adb-mv-gYD" secondAttribute="trailing" constant="20" id="RfH-9G-Vdx"/>
                             <constraint firstItem="bq3-8y-N0W" firstAttribute="trailing" secondItem="YDQ-An-ago" secondAttribute="trailing" constant="20" id="Sl2-zc-Ief"/>
                             <constraint firstItem="YDQ-An-ago" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" constant="20" id="XZg-B3-ZV7"/>
                             <constraint firstItem="rGL-3G-6bF" firstAttribute="top" secondItem="Adb-mv-gYD" secondAttribute="bottom" constant="40" id="aFb-xZ-0BC"/>
+                            <constraint firstItem="oV0-7a-RJe" firstAttribute="bottom" secondItem="bq3-8y-N0W" secondAttribute="bottom" id="cJx-fw-PpP"/>
                             <constraint firstItem="dcJ-oD-hmR" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" constant="20" id="ddQ-4r-Obs"/>
+                            <constraint firstItem="oV0-7a-RJe" firstAttribute="trailing" secondItem="bq3-8y-N0W" secondAttribute="trailing" id="eCO-hQ-kgc"/>
+                            <constraint firstItem="oV0-7a-RJe" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" id="ew0-GC-UiL"/>
                             <constraint firstItem="dcJ-oD-hmR" firstAttribute="leading" secondItem="rGL-3G-6bF" secondAttribute="leading" id="g2d-1m-afZ"/>
                             <constraint firstItem="rGL-3G-6bF" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" constant="20" id="gSl-bw-Ek5"/>
                             <constraint firstItem="bq3-8y-N0W" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rGL-3G-6bF" secondAttribute="trailing" symbolic="YES" id="gw6-08-meD"/>
