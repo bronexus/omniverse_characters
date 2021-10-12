@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDataSource {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var charactersTableView: UITableView!
     @IBOutlet var prevButton: UIButton!
@@ -27,6 +27,9 @@ class MainViewController: UIViewController, UITableViewDataSource {
         
         // Fetch to charactersList variable Characters if first page of Rick and Morty API
         downloadCharactersListByPageURL(urlString: "https://rickandmortyapi.com/api/character")
+        
+        charactersTableView.delegate = self
+        charactersTableView.dataSource = self
     }
     
 
@@ -60,7 +63,17 @@ class MainViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    //
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showCharacterDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? CharacterDetailsViewController {
+            destination.receivedCharacterDetails = charactersList[(charactersTableView.indexPathForSelectedRow?.row)!]
+        }
+    }
     
     // MARK: - Buttons
     

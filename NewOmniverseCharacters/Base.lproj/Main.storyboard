@@ -158,10 +158,10 @@
             </objects>
             <point key="canvasLocation" x="860.86956521739137" y="128.57142857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Character Details View Controller-->
         <scene sceneID="v4e-Qu-Z8H">
             <objects>
-                <viewController id="y3m-Nd-Rce" sceneMemberID="viewController">
+                <viewController id="y3m-Nd-Rce" customClass="CharacterDetailsViewController" customModule="NewOmniverseCharacters" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yOT-pw-B2N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -170,6 +170,7 @@
                                 <rect key="frame" x="20" y="138" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dcJ-oD-hmR" secondAttribute="height" multiplier="1:1" id="OYf-CF-CoX"/>
+                                    <constraint firstAttribute="height" constant="150" id="ma8-fm-WnN"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eyehole Man" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDQ-An-ago">
@@ -178,8 +179,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Adb-mv-gYD">
-                                <rect key="frame" x="178" y="138" width="239.66666666666666" height="134.33333333333334"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Adb-mv-gYD">
+                                <rect key="frame" x="178" y="138" width="239.66666666666663" height="134.33333333333337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last known location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXM-US-QK6">
                                         <rect key="frame" x="0.0" y="0.0" width="155.66666666666666" height="20.333333333333332"/>
@@ -188,7 +189,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlJ-yo-THN">
-                                        <rect key="frame" x="0.0" y="25.333333333333332" width="52" height="15.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="25.333333333333346" width="52" height="15.666666666666668"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -200,7 +201,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interdimensional Cable 2:Tempting Fate" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9l-8r-NSC">
-                                        <rect key="frame" x="0.0" y="71.333333333333329" width="239.66666666666666" height="15.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="71.333333333333343" width="239.66666666666666" height="15.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -212,7 +213,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQ8-Ug-l4e">
-                                        <rect key="frame" x="0.0" y="117.33333333333333" width="40" height="16.999999999999986"/>
+                                        <rect key="frame" x="0.0" y="117.33333333333334" width="40" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -220,13 +221,14 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Also from Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGL-3G-6bF">
-                                <rect key="frame" x="20" y="328" width="374" height="30"/>
+                                <rect key="frame" x="19.999999999999986" y="328" width="224.66666666666663" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oV0-7a-RJe">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oV0-7a-RJe">
                                 <rect key="frame" x="0.0" y="366" width="414" height="496"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="residentCell" rowHeight="120" id="0nw-U6-NvA">
@@ -290,22 +292,27 @@
                         <viewLayoutGuide key="safeArea" id="bq3-8y-N0W"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dcJ-oD-hmR" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" constant="20" id="0Mt-8H-3Nq"/>
-                            <constraint firstItem="rGL-3G-6bF" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" constant="20" id="3Tq-qQ-2Lz"/>
-                            <constraint firstItem="oV0-7a-RJe" firstAttribute="top" secondItem="rGL-3G-6bF" secondAttribute="bottom" constant="8" symbolic="YES" id="3cu-kf-AyA"/>
-                            <constraint firstItem="YDQ-An-ago" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" constant="20" id="FTt-ts-w7T"/>
-                            <constraint firstItem="bq3-8y-N0W" firstAttribute="trailing" secondItem="dcJ-oD-hmR" secondAttribute="trailing" constant="244" id="K5A-wd-BxM"/>
-                            <constraint firstItem="oV0-7a-RJe" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" id="LzI-Lr-3wy"/>
-                            <constraint firstItem="oV0-7a-RJe" firstAttribute="bottom" secondItem="bq3-8y-N0W" secondAttribute="bottom" id="OBj-7b-9H6"/>
-                            <constraint firstItem="YDQ-An-ago" firstAttribute="top" secondItem="bq3-8y-N0W" secondAttribute="top" id="PM9-Hz-gfE"/>
-                            <constraint firstItem="oV0-7a-RJe" firstAttribute="trailing" secondItem="bq3-8y-N0W" secondAttribute="trailing" id="PqE-4j-cnT"/>
-                            <constraint firstItem="bq3-8y-N0W" firstAttribute="trailing" secondItem="rGL-3G-6bF" secondAttribute="trailing" constant="20" id="Rol-fQ-5kN"/>
-                            <constraint firstItem="dcJ-oD-hmR" firstAttribute="top" secondItem="bq3-8y-N0W" secondAttribute="top" constant="50" id="aPS-eN-DPN"/>
-                            <constraint firstItem="bq3-8y-N0W" firstAttribute="trailing" secondItem="YDQ-An-ago" secondAttribute="trailing" constant="187" id="q8x-4i-cnk"/>
-                            <constraint firstItem="rGL-3G-6bF" firstAttribute="top" secondItem="dcJ-oD-hmR" secondAttribute="bottom" constant="40" id="rFQ-mq-UCc"/>
+                            <constraint firstItem="bq3-8y-N0W" firstAttribute="trailing" secondItem="YDQ-An-ago" secondAttribute="trailing" constant="187" id="OmD-5A-fnu"/>
+                            <constraint firstItem="YDQ-An-ago" firstAttribute="top" secondItem="bq3-8y-N0W" secondAttribute="top" id="PPd-oQ-DG4"/>
+                            <constraint firstItem="YDQ-An-ago" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" constant="20" id="XZg-B3-ZV7"/>
+                            <constraint firstItem="dcJ-oD-hmR" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" constant="20" id="ddQ-4r-Obs"/>
+                            <constraint firstItem="dcJ-oD-hmR" firstAttribute="leading" secondItem="rGL-3G-6bF" secondAttribute="leading" id="g2d-1m-afZ"/>
+                            <constraint firstItem="rGL-3G-6bF" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" constant="20" id="gSl-bw-Ek5"/>
+                            <constraint firstItem="bq3-8y-N0W" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rGL-3G-6bF" secondAttribute="trailing" symbolic="YES" id="gw6-08-meD"/>
+                            <constraint firstItem="Adb-mv-gYD" firstAttribute="leading" secondItem="dcJ-oD-hmR" secondAttribute="trailing" constant="8" symbolic="YES" id="jf9-hg-BKU"/>
+                            <constraint firstItem="rGL-3G-6bF" firstAttribute="top" secondItem="dcJ-oD-hmR" secondAttribute="bottom" constant="40" id="r0l-BE-jHl"/>
+                            <constraint firstItem="dcJ-oD-hmR" firstAttribute="top" secondItem="Adb-mv-gYD" secondAttribute="top" id="rOp-16-EkM"/>
+                            <constraint firstItem="dcJ-oD-hmR" firstAttribute="top" secondItem="YDQ-An-ago" secondAttribute="bottom" constant="8" symbolic="YES" id="vcd-Cx-wrp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UFF-Yd-98I"/>
+                    <connections>
+                        <outlet property="characterDetailsEpisodeLabel" destination="H9l-8r-NSC" id="0zl-Xc-ryV"/>
+                        <outlet property="characterDetailsImage" destination="dcJ-oD-hmR" id="W4u-qX-YdH"/>
+                        <outlet property="characterDetailsLocationLabel" destination="dlJ-yo-THN" id="abY-Gt-s2C"/>
+                        <outlet property="characterDetailsNameLabel" destination="YDQ-An-ago" id="6yY-t8-xO8"/>
+                        <outlet property="characterDetailsStatusLabel" destination="iQ8-Ug-l4e" id="HTQ-0b-64A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ilb-Y5-zIl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

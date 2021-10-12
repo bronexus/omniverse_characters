@@ -9,10 +9,27 @@ import UIKit
 
 class CharacterDetailsViewController: UIViewController {
 
+    @IBOutlet var characterDetailsNameLabel: UILabel!
+    @IBOutlet var characterDetailsImage: UIImageView!
+    @IBOutlet var characterDetailsLocationLabel: UILabel!
+    @IBOutlet var characterDetailsEpisodeLabel: UILabel!
+    @IBOutlet var characterDetailsStatusLabel: UILabel!
+    
+    
+    var receivedCharacterDetails: SingleCharacter?
+    var characterDetails: SingleCharacter?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        characterDetails = receivedCharacterDetails
+        
+        // Display selected character details from previous view
+        characterDetailsNameLabel.text = characterDetails?.name
+        characterDetailsLocationLabel.text = characterDetails?.location.name
+        characterDetailsEpisodeLabel.text = characterDetails?.episode[0]
+        characterDetailsStatusLabel.text = characterDetails?.status
+        
     }
     
 
