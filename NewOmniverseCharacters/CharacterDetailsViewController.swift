@@ -40,19 +40,22 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource, U
         characterDetailsEpisodeLabel.text = characterDetails?.episode[0]
         characterDetailsStatusLabel.text = characterDetails?.status
         
-        if let imageURL = URL(string: characterDetails!.image) {
-            DispatchQueue.global().async {
-                let data = try? Data(contentsOf: imageURL)
-                if let data = data {
-                    let image = UIImage(data: data)
-                    DispatchQueue.main.async {
-                        self.characterDetailsImage.layer.cornerRadius = 15
-                        self.characterDetailsImage.image = image
-                    }
-                }
-            }
-
-        }
+//        if let imageURL = URL(string: characterDetails!.image) {
+//            DispatchQueue.global().async {
+//                let data = try? Data(contentsOf: imageURL)
+//                if let data = data {
+//                    let image = UIImage(data: data)
+//                    DispatchQueue.main.async {
+//                        self.characterDetailsImage.layer.cornerRadius = 15
+//                        self.characterDetailsImage.image = image
+//                    }
+//                }
+//            }
+//
+//        }
+        
+        self.characterDetailsImage.layer.cornerRadius = 15
+        self.characterDetailsImage.image = GetImage(urlString: characterDetails!.image).image
         
         // Display episode details
         alsoFromLocationLabel.text = characterDetails?.location.url != "" ? "Also from \((characterDetails?.location.name)!)" : ""
@@ -98,18 +101,20 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource, U
         
         cell.residentEpisodeLabel.text = characterEpisodeName
 
-        if let imageURL = URL(string: charactersOfLocation[indexPath.row].image) {
-            DispatchQueue.global().async {
-                let data = try? Data(contentsOf: imageURL)
-                if let data = data {
-                    let image = UIImage(data: data)
-                    DispatchQueue.main.async {
-                        cell.residentImage.image = image
-                    }
-                }
-            }
-
-        }
+//        if let imageURL = URL(string: charactersOfLocation[indexPath.row].image) {
+//            DispatchQueue.global().async {
+//                let data = try? Data(contentsOf: imageURL)
+//                if let data = data {
+//                    let image = UIImage(data: data)
+//                    DispatchQueue.main.async {
+//                        cell.residentImage.image = image
+//                    }
+//                }
+//            }
+//
+//        }
+        
+        cell.residentImage.image = GetImage(urlString: charactersOfLocation[indexPath.row].image).image
         return cell
     }
 
