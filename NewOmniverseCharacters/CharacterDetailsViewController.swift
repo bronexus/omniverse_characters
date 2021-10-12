@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CharacterDetailsViewController: UIViewController, UITableViewDataSource {
+class CharacterDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var characterDetailsNameLabel: UILabel!
     @IBOutlet var characterDetailsImage: UIImageView!
@@ -58,6 +58,7 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource {
         downloadLocationCharactersUrlListByEpisodeURL(urlString: (characterDetails?.location.url)!)
         
     }
+
     
 
     // MARK: - Episode Characters
@@ -89,6 +90,13 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource {
         }
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        characterDetails = charactersOfLocation[indexPath.row]
+        
+    }
+    
+
     
     // MARK: - Download Functions
     
@@ -116,7 +124,7 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource {
                 
                 DispatchQueue.main.async {
 //                    print(self.residentsUrls)
-                    print(self.charactersOfLocation)
+//                    print(self.charactersOfLocation)
                     self.episodeCharactersTableView.reloadData()
                 }
             } catch {

@@ -315,6 +315,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="y3m-Nd-Rce" id="4fw-SU-k58"/>
+                                    <outlet property="delegate" destination="y3m-Nd-Rce" id="2ez-1B-AG2"/>
                                 </connections>
                             </tableView>
                         </subviews>
