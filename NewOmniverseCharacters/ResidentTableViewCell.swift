@@ -15,10 +15,8 @@ class ResidentTableViewCell: UITableViewCell {
     @IBOutlet var residentEpisodeLabel: UILabel!
     @IBOutlet var residentImage: UIImageView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         residentViewCell.layer.shadowColor = UIColor.black.cgColor
         residentViewCell.layer.shadowOpacity = 0.2
@@ -32,7 +30,6 @@ class ResidentTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
 }

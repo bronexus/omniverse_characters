@@ -15,10 +15,8 @@ class CharacterTableViewCell: UITableViewCell {
     @IBOutlet var characterEpisodeLabel: UILabel!
     @IBOutlet var characterImage: UIImageView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         characterCellView.layer.shadowColor = UIColor.black.cgColor
         characterCellView.layer.shadowOpacity = 0.2
@@ -32,8 +30,6 @@ class CharacterTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
-        
     }
 
 }

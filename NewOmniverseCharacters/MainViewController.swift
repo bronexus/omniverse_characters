@@ -23,8 +23,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // UITableView limit scroll speed
+
 //        self.charactersTableView.decelerationRate = UIScrollView.DecelerationRate.fast
         
         // Fetch to charactersList variable Characters if first page of Rick and Morty API
@@ -32,10 +31,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         charactersTableView.delegate = self
         charactersTableView.dataSource = self
-        
     }
     
-
     // MARK: - UITableView Functions
     
     // Define number of rows in Characters Table View
@@ -70,23 +67,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         cell.characterEpisodeLabel.text = characterEpisodeName
-        
-//        if let imageURL = URL(string: charactersList[indexPath.row].image) {
-//            DispatchQueue.global().async {
-//                let data = try? Data(contentsOf: imageURL)
-//                if let data = data {
-//                    let image = UIImage(data: data)
-//                    DispatchQueue.main.async {
-//                        cell.characterImage.image = image
-//                    }
-//                }
-//            }
-//        }
-
-        
-
-        cell.characterImage.image = GetImage(urlString: self.charactersList[indexPath.row].image).image
-
+        cell.characterImage.loadThumbnail(urlSting: self.charactersList[indexPath.row].image)
         
         return cell
     }

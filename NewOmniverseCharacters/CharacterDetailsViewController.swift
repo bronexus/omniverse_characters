@@ -40,22 +40,9 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource, U
         characterDetailsEpisodeLabel.text = characterDetails?.episode[0]
         characterDetailsStatusLabel.text = characterDetails?.status
         
-//        if let imageURL = URL(string: characterDetails!.image) {
-//            DispatchQueue.global().async {
-//                let data = try? Data(contentsOf: imageURL)
-//                if let data = data {
-//                    let image = UIImage(data: data)
-//                    DispatchQueue.main.async {
-//                        self.characterDetailsImage.layer.cornerRadius = 15
-//                        self.characterDetailsImage.image = image
-//                    }
-//                }
-//            }
-//
-//        }
-        
+        // Display selected character image from previous view
         self.characterDetailsImage.layer.cornerRadius = 15
-        self.characterDetailsImage.image = GetImage(urlString: characterDetails!.image).image
+        self.characterDetailsImage.loadThumbnail(urlSting: characterDetails!.image)
         
         // Display episode details
         alsoFromLocationLabel.text = characterDetails?.location.url != "" ? "Also from \((characterDetails?.location.name)!)" : ""
@@ -100,21 +87,8 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource, U
         }
         
         cell.residentEpisodeLabel.text = characterEpisodeName
+        cell.residentImage.loadThumbnail(urlSting: charactersOfLocation[indexPath.row].image)
 
-//        if let imageURL = URL(string: charactersOfLocation[indexPath.row].image) {
-//            DispatchQueue.global().async {
-//                let data = try? Data(contentsOf: imageURL)
-//                if let data = data {
-//                    let image = UIImage(data: data)
-//                    DispatchQueue.main.async {
-//                        cell.residentImage.image = image
-//                    }
-//                }
-//            }
-//
-//        }
-        
-        cell.residentImage.image = GetImage(urlString: charactersOfLocation[indexPath.row].image).image
         return cell
     }
 
@@ -123,7 +97,27 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource, U
         
         characterDetailsNameLabel.text = characterDetails?.name
         characterDetailsLocationLabel.text = characterDetails?.location.name
-        characterDetailsEpisodeLabel.text = characterDetails?.episode[0]
+        
+        if let episodeURL = URL(string: charactersOfLocation[indexPath.row].episode[0]) {
+            DispatchQueue.global().async {
+                URLSession.shared.dataTask(with: episodeURL) { data, urlRepsonse, error in
+                    guard let data = data, urlRepsonse != nil, error == nil else {
+                        print("Episode download Error.")
+                        self.characterEpisodeName = self.charactersOfLocation[indexPath.row].episode[0]
+                        return
+                    }
+                    do {
+                        let decoder = JSONDecoder()
+                        let episode = try decoder.decode(Episode.self, from: data)
+                        self.characterEpisodeName = episode.name
+                    } catch {
+                        print("Episode download error.")
+                    }
+                }.resume()
+            }
+        }
+        
+        characterDetailsEpisodeLabel.text = characterEpisodeName
         characterDetailsStatusLabel.text = characterDetails?.status
         
         if let imageURL = URL(string: characterDetails!.image) {
@@ -202,23 +196,5 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource, U
             }
         }.resume()
     }
-    
-//    func downloadEpisode(urlString: String) {
-//        let downloadURL = URL(string: urlString)
-//        guard let url = downloadURL else { return }
-//        URLSession.shared.dataTask(with: url) { data, urlResponse, error in
-//            guard let data = data, urlResponse != nil, error == nil else {
-//                print("Episode download Error.")
-//                return
-//            }
-//            do {
-//                let decoder = JSONDecoder()
-//                let episode = try decoder.decode(Episode.self, from: data)
-//                self.episode = episode
-//            } catch {
-//                print("Episode download Error")
-//            }
-//        }.resume()
-//    }
     
 }
