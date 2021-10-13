@@ -80,7 +80,7 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource, U
                         let episode = try decoder.decode(Episode.self, from: data)
                         self.characterEpisodeName = episode.name
                     } catch {
-                        print("Episode download error.")
+                        print("Episode decode error.")
                     }
                 }.resume()
             }
@@ -111,7 +111,7 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource, U
                         let episode = try decoder.decode(Episode.self, from: data)
                         self.characterEpisodeName = episode.name
                     } catch {
-                        print("Episode download error.")
+                        print("Episode decode error.")
                     }
                 }.resume()
             }

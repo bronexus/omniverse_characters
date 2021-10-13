@@ -8,8 +8,6 @@
 import Foundation
 import UIKit
 
-/// Result enum is a generic for any type of value
-/// with success and failure case
 public enum Result<T> {
     case success(T)
     case failure(Error)
@@ -23,8 +21,6 @@ final class Networking: NSObject {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
 
-    /// downloadImage function will download the thumbnail images
-    /// returns Result<Data> as completion handler
     public static func downloadImage(url: URL,
                                      completion: @escaping (Result<Data>) -> Void) {
         Networking.getData(url: url) { data, response, error in

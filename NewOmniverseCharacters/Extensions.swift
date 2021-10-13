@@ -11,10 +11,9 @@ import UIKit
 let imageCache = NSCache<AnyObject, AnyObject>()
 
 // MARK: - UIImageView extension
+
 extension UIImageView {
-    
-    /// This loadThumbnail function is used to download thumbnail image using urlString
-    /// This method also using cache of loaded thumbnail using urlString as a key of cached thumbnail.
+
     func loadThumbnail(urlSting: String) {
         guard let url = URL(string: urlSting) else { return }
         image = nil
