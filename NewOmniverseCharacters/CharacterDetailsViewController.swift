@@ -152,7 +152,7 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource, U
             do {
                 let decoder = JSONDecoder()
                 let locationResponse = try decoder.decode(Location.self, from: data)
-                print("Loaded location \(urlString) of 108")
+//                print("Loaded location \(urlString) of 108")
                 print("Teleported to \(locationResponse.name).")
                 
 //                self.charactersList = characterResponse.results

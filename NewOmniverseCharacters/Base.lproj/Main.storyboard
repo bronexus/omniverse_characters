@@ -184,7 +184,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Adb-mv-gYD">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Adb-mv-gYD">
                                 <rect key="frame" x="178" y="138" width="216" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last known location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXM-US-QK6">
@@ -194,7 +194,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlJ-yo-THN">
-                                        <rect key="frame" x="0.0" y="25.333333333333346" width="216" height="15.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="25.333333333333346" width="52" height="15.666666666666668"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -206,7 +206,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interdimensional Cable 2:Tempting Fate" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9l-8r-NSC">
-                                        <rect key="frame" x="0.0" y="71.333333333333343" width="216" height="31.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="71.333333333333343" width="142" height="31.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -224,10 +224,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="H9l-8r-NSC" secondAttribute="trailing" id="0Q0-yh-5of"/>
-                                    <constraint firstAttribute="trailing" secondItem="dlJ-yo-THN" secondAttribute="trailing" id="hX0-co-heK"/>
-                                </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Also from Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGL-3G-6bF">
                                 <rect key="frame" x="20" y="308" width="182.33333333333334" height="24"/>
@@ -323,20 +319,21 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bq3-8y-N0W" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rGL-3G-6bF" secondAttribute="trailing" constant="20" id="4SL-CN-CYh"/>
+                            <constraint firstItem="dcJ-oD-hmR" firstAttribute="top" secondItem="bq3-8y-N0W" secondAttribute="top" constant="50" id="4jc-54-60M"/>
+                            <constraint firstItem="Adb-mv-gYD" firstAttribute="height" secondItem="dcJ-oD-hmR" secondAttribute="height" id="Cq8-Pu-7Kp"/>
+                            <constraint firstItem="Adb-mv-gYD" firstAttribute="leading" secondItem="dcJ-oD-hmR" secondAttribute="trailing" constant="8" symbolic="YES" id="ILk-dH-zJb"/>
+                            <constraint firstItem="Adb-mv-gYD" firstAttribute="top" secondItem="bq3-8y-N0W" secondAttribute="top" constant="50" id="MNd-Pu-qnx"/>
                             <constraint firstItem="YDQ-An-ago" firstAttribute="top" secondItem="bq3-8y-N0W" secondAttribute="top" id="PPd-oQ-DG4"/>
                             <constraint firstItem="rGL-3G-6bF" firstAttribute="top" secondItem="dcJ-oD-hmR" secondAttribute="bottom" constant="20" id="Por-Zq-PuM"/>
-                            <constraint firstAttribute="trailing" secondItem="Adb-mv-gYD" secondAttribute="trailing" constant="20" id="RfH-9G-Vdx"/>
                             <constraint firstItem="YDQ-An-ago" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" constant="20" id="XZg-B3-ZV7"/>
                             <constraint firstAttribute="bottom" secondItem="oV0-7a-RJe" secondAttribute="bottom" id="cTh-XU-wur"/>
                             <constraint firstItem="dcJ-oD-hmR" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" constant="20" id="ddQ-4r-Obs"/>
                             <constraint firstItem="rGL-3G-6bF" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" constant="20" id="eBq-ZJ-Zwu"/>
                             <constraint firstItem="oV0-7a-RJe" firstAttribute="trailing" secondItem="bq3-8y-N0W" secondAttribute="trailing" id="eCO-hQ-kgc"/>
                             <constraint firstItem="oV0-7a-RJe" firstAttribute="leading" secondItem="bq3-8y-N0W" secondAttribute="leading" id="ew0-GC-UiL"/>
-                            <constraint firstItem="Adb-mv-gYD" firstAttribute="leading" secondItem="dcJ-oD-hmR" secondAttribute="trailing" constant="8" symbolic="YES" id="jf9-hg-BKU"/>
+                            <constraint firstAttribute="trailing" secondItem="Adb-mv-gYD" secondAttribute="trailing" constant="20" id="mwj-q5-3di"/>
                             <constraint firstItem="oV0-7a-RJe" firstAttribute="top" secondItem="rGL-3G-6bF" secondAttribute="bottom" constant="8" symbolic="YES" id="rCx-6w-qUe"/>
-                            <constraint firstItem="dcJ-oD-hmR" firstAttribute="top" secondItem="Adb-mv-gYD" secondAttribute="top" id="rOp-16-EkM"/>
                             <constraint firstItem="bq3-8y-N0W" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YDQ-An-ago" secondAttribute="trailing" symbolic="YES" id="u5Z-pn-Pvy"/>
-                            <constraint firstItem="dcJ-oD-hmR" firstAttribute="top" secondItem="YDQ-An-ago" secondAttribute="bottom" constant="8" symbolic="YES" id="vcd-Cx-wrp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UFF-Yd-98I"/>

@@ -60,7 +60,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         let episode = try decoder.decode(Episode.self, from: data)
                         self.characterEpisodeName = episode.name
                     } catch {
-                        print("Episode download error.")
+                        print("Episode decode error.")
                     }
                 }.resume()
             }
@@ -117,7 +117,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 print("Characters Page download Error.")
                 return
             }
-            print("Characters Page download Succes.")
+//            print("Characters Page download Succes.")
             do {
                 let decoder = JSONDecoder()
                 let characterResponse = try decoder.decode(CharacterPageResponse.self, from: data)
