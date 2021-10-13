@@ -38,7 +38,7 @@ class CharacterDetailsViewController: UIViewController, UITableViewDataSource, U
         characterDetailsNameLabel.text = characterDetails?.name
         characterDetailsLocationLabel.text = characterDetails?.location.name
         characterDetailsEpisodeLabel.text = characterDetails?.episode[0]
-        characterDetailsStatusLabel.text = characterDetails?.status
+        characterDetailsStatusLabel.text = characterDetails!.status
         
         // Display selected character image from previous view
         self.characterDetailsImage.layer.cornerRadius = 15
