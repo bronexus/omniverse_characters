@@ -7,7 +7,8 @@ ios app for viewing all characters from Rick and Morty series with images and in
 
 ## Screenshots
 
-![screenshot_01](https://ibb.co/jWzfybF)
+![screenshot_01](https://i.ibb.co/X3DL7jT/screenshot-01.png)
+![screenshot_02](https://i.ibb.co/mvBhrhW/screenshot-02.png)
 
 ### Dependencies
 
